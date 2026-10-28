@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Question Bank - v2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            padding: 40px;
+        }
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        h1 { color: #183b68; }
+        .question {
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .edit { background: #2563eb; }
+        .delete { background: #dc2626; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Quiz Question Bank System</h1>
+    <h3>Version 2: Edit / Delete Questions</h3>
+    <p>Developed by Shivaranjini</p>
+
+    {% for item in questions %}
+    <div class="question">
+        <form method="POST" action="/edit/{{ item.id }}">
+            <label>Question</label>
+            <input name="question" value="{{ item.question }}" required>
+
+            <label>Answer</label>
+            <input name="answer" value="{{ item.answer }}" required>
+
+            <button class="edit" type="submit">Save Changes</button>
+        </form>
+
+        <form method="POST" action="/delete/{{ item.id }}">
+            <button class="delete" type="submit">Delete</button>
+        </form>
+    </div>
+    {% else %}
+    <p>No questions available to edit or delete.</p>
+    {% endfor %}
+</div>
+</body>
+</html>
