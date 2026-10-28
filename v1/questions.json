@@ -3,5 +3,10 @@
     "id": 1,
     "question": "explain agile process development",
     "answer": "rdd"
+  },
+  {
+    "id": 2,
+    "question": "where is agile framework used",
+    "answer": "recent applications"
   }
 ]

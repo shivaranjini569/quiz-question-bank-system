@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Question Bank - v3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            padding: 40px 16px;
+        }
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px #0001;
+        }
+        h1 { color: #183b68; }
+        .question {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 12px 0;
+        }
+        .answer { color: #2563eb; }
+        .meta { color: #64748b; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Quiz Question Bank System</h1>
+    <h3>Version 3: View Questions</h3>
+    <p class="meta">Developed by Shivaranjini</p>
+
+    <h3>Total Questions: {{ questions|length }}</h3>
+
+    {% for item in questions %}
+    <div class="question">
+        <strong>{{ loop.index }}. {{ item.question }}</strong>
+        <p class="answer">Answer: {{ item.answer }}</p>
+    </div>
+    {% else %}
+    <p>No questions available.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

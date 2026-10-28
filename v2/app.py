@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 app = Flask(__name__)
-DATA_FILE = Path(__file__).parent / "questions.json"
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "questions.json"
 
 def load_questions():
     if DATA_FILE.exists():
