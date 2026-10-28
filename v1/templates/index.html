@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Question Bank - v1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            margin: 0;
+            padding: 40px 16px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px #0001;
+        }
+        h1 { color: #183b68; }
+        input, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border-radius: 6px;
+        }
+        input { border: 1px solid #cbd5e1; }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        li { margin: 10px 0; }
+        .meta { color: #64748b; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Question Bank System</h1>
+        <p><strong>Version 1:</strong> Add Questions</p>
+        <p class="meta">Developed by Shivaranjini</p>
+
+        <form method="POST">
+            <label for="question">Question</label>
+            <input id="question" name="question"
+                   placeholder="Enter a quiz question" required>
+
+            <label for="answer">Answer</label>
+            <input id="answer" name="answer"
+                   placeholder="Enter the correct answer" required>
+
+            <button type="submit">Add Question</button>
+        </form>
+
+        <h2>Saved Questions</h2>
+        <ul>
+            {% for item in questions %}
+            <li>
+                <strong>{{ item.question }}</strong>
+                — {{ item.answer }}
+            </li>
+            {% else %}
+            <li>No questions added yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
